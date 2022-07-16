@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import BgHeader from './images/bg-header-desktop.svg'
+import {FilterList} from './components/FiltersList/FiltersList'
+import { JobsList } from './components/JobsList/JobsList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App h-screen bg-lightgray">
+      <header className='w-full bg-lightdarkgray bg-no-repeat bg-cover mb-28'style={{backgroundImage:`url(${BgHeader})`,minHeight:'150px'}}/> 
+      <FilterList/>
+      <JobsList/>
     </div>
   );
 }
