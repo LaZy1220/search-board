@@ -12,11 +12,12 @@ export function Card({
     location,
     languages,
     tools,
+    handleAddFilter
 })
 {
-    const positions = [].concat(...languages,...tools,role,level)
+    const tags = [].concat(...languages,...tools,role,level)
     return(
-        <div className=" container px-5 flex justify-between items-center h-28 w-2/3 bg-white drop-shadow-lg ml-60 rounded-xl mt-10">
+        <div className="px-5 flex justify-between items-center h-28 w-full bg-white drop-shadow-lg rounded-xl mb-10">
             <img className="absolute"
                 src={logo}
                 alt={company}/>
@@ -30,13 +31,19 @@ export function Card({
                 <div className="text-darkgray flex flex-wrap gap-5">
                     <span>{postedAt}</span>
                     <span>{contract}</span>
-                    <spam>{location}</spam>
+                    <span>{location}</span>
                 </div>
 
             </div>
             <div className="flex justify-between space-x-3  ">
                 {
-                    positions.map((item)=><li className="list-none bg-lightgray p-2 rounded-md text-lightdarkgray cursor-pointer" key={item}>{item}</li>)
+                    tags.map((item)=>
+                    <li 
+                    className="list-none bg-lightgray p-2 rounded-md text-lightdarkgray cursor-pointer hover:text-lightgray hover:bg-lightdarkgray" 
+                    key={item}
+                    onClick={()=>handleAddFilter(item)}>
+                    {item}
+                    </li>)
                 }
             </div>
         </div>
