@@ -13,11 +13,9 @@ function App() {
   })
   return (
     <div className="App">
-      <header className='w-full bg-lightdarkgray bg-no-repeat bg-cover mb-28'style={{backgroundImage:`url(${BgImg})`,minHeight:'150px'}}/>
-      <div className='conteiter mx-40'>
+      <header className='w-full bg-lightdarkgray bg-no-repeat bg-cover'style={{backgroundImage:`url(${BgImg})`,minHeight:'150px'}}/>
       <FilterList/>
       <JobsList/>
-      </div> 
     </div>
   );
 }
