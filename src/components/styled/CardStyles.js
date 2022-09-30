@@ -9,7 +9,7 @@ export const CardEl = styled.div`
 export const Wrapper = styled.div`
     display: flex;
     background-color: #FFFF;
-    box-shadow:0 10px 8px rgb(0 0 0 / 0.04);
+    box-shadow:0 8px 6px rgb(0 0 0 / 0.19);
     border-radius: 12px;
     padding: 8px;
     justify-content: space-between;
@@ -25,7 +25,7 @@ export const VacancyInfo = styled.div`
     gap: 4px;
     margin:8px 0;
     @media (max-width:1024px){
-        padding: 0.25rem 0 0.5rem 0;
+        padding: 0.5rem 0 1rem 0;
         border-bottom:2px solid var(--darkgray);
     }
 `
@@ -49,13 +49,42 @@ export const TitleConteiner = styled.div`
 `
 export const Title = styled.h3`
     color:var(--lightdarkgray);
-    font-size: inherit;
-    font-weight: inherit;
+    
 `
 export const DopInfo = styled.span`
     background-color:${porps=>porps.isNew?'var(--lightdarkgray)':'var(--verydarkgray)'};
     color: #FFFF;
-    padding: 8px 16px;
+    padding: 8px;
     border-radius: 1.5rem;
-
+`
+export const Position =styled.h2`
+    margin: 16px 0;
+    font-weight: bold;
+`
+export const TextConteiner = styled.div`
+    color: var(--darkgray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+`
+export const TagsConteiner = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:0.75rem;
+    @media (max-width:1024px){
+        gap:4px;
+    }
+`
+export const Tag = styled.li`
+    list-style-type: none;
+    background-color:var(--lightgray);
+    padding: 13px 8px;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    color:var(--lightdarkgray);
+    &:hover{
+        color:var(--lightgray);
+        background-color:var(--lightdarkgray);
+    }
 `
