@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 export const VacancyInfo = styled.div`
     display: flex;
     position: relative;
-    gap: 4px;
+    gap: 10px;
     margin:8px 0;
     @media (max-width:1024px){
         padding: 0.5rem 0 1rem 0;

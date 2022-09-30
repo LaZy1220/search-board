@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=League+Spartan:wght@200;300;500&family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap");
 * {
   font-family: "League Spartan", sans-serif;
-  box-sizing: border-box;
   margin: 0;
 }
 h1,
