@@ -1,6 +1,6 @@
-import BgImg from './assets/images/bg-header-desktop.svg'
-import {FilterList} from './components/FiltersList/FiltersList'
-import { JobsList } from './components/JobsList/JobsList';
+import {FilterList} from './components/FiltersList'
+import { JobsList } from './components/JobsList';
+import { Header } from './components/Header';
 import {useEffect} from 'react'
 import {useDispatch} from  'react-redux'
 import {addPosition} from './store/positions/positions-action'
@@ -10,10 +10,10 @@ function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(addPosition(data))
-  })
+    })
   return (
     <div className="App">
-      <header className='w-full bg-lightdarkgray bg-no-repeat bg-cover'style={{backgroundImage:`url(${BgImg})`,minHeight:'150px'}}/>
+      <Header/>
       <FilterList/>
       <JobsList/>
     </div>
