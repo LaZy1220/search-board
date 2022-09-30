@@ -1,4 +1,4 @@
-import {CardEl,Wrapper,VacancyInfo,Logo,FlexColEl,TitleConteiner,Title,DopInfo} from "./styled/CardStyles"
+import {CardEl,Wrapper,VacancyInfo,Logo,FlexColEl,TitleConteiner,Title,DopInfo, Position,TextConteiner,TagsConteiner,Tag} from "./styled/CardStyles"
 
 export function Card({
     id,
@@ -29,25 +29,25 @@ export function Card({
                                 {isNew?<DopInfo isNew>NEW!</DopInfo>:''}
                                 {featured?<DopInfo>FEATURED</DopInfo>:''}
                         </TitleConteiner>
-                        <h2 className="font-bold mb-2 mt-2">{position}</h2>
-                        <div className="text-darkgray flex flex-wrap gap-5">
+                        <Position>{position}</Position>
+                        <TextConteiner>
                              <span>{postedAt}</span>
                              <span>{contract}</span>
                              <span>{location}</span>
-                        </div>
+                        </TextConteiner>
                     </FlexColEl>
                 </VacancyInfo>
-            <div className="flex flex-wrap gap-1 lg:items-center lg:gap-3">
+            <TagsConteiner>
                 {
                     tags.map((item)=>
-                    <li 
-                    className="list-none bg-lightgray p-2 rounded-md text-lightdarkgray cursor-pointer hover:text-lightgray hover:bg-lightdarkgray" 
+                    <Tag 
+                    className=" text-lightdarkgray cursor-pointer hover:text-lightgray hover:bg-lightdarkgray" 
                     key={item}
                     onClick={()=>handleAddFilter(item)}>
                     {item}
-                    </li>)
+                    </Tag>)
                 }
-            </div>
+            </TagsConteiner>
             </Wrapper>
         </CardEl>
     )
