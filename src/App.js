@@ -1,5 +1,5 @@
-import {FilterList} from './components/FiltersList'
-import { JobsList } from './components/JobsList';
+import {FilterList} from './components/features/filter/FiltersList'
+import { JobsList } from './components/features/positions/JobsList';
 import {useEffect} from 'react'
 import {useDispatch} from  'react-redux'
 import {addPosition} from './store/positions/positions-action'

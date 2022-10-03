@@ -1,4 +1,17 @@
-import {CardEl,Wrapper,VacancyInfo,Logo,FlexColEl,TitleConteiner,Title,DopInfo, Position,TextConteiner,TagsConteiner,Tag} from "./styled/CardStyles"
+import {
+    CardEl,
+    Wrapper,
+    VacancyInfo,
+    Logo,
+    FlexColEl,
+    TitleConteiner,
+    Title,
+    DopInfo,
+    Position,
+    TextConteiner,
+    TagsConteiner,
+    Tag
+} from "./styled/CardStyles"
 
 export function Card({
     id,
