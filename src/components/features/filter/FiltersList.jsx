@@ -1,6 +1,5 @@
 import { useSelector,useDispatch } from "react-redux/es/exports"
-import { clearFilter,removeFilter } from "../../../store/filters/filters-action"
-import {selectFilters} from '../../../store/filters/filters-selector'
+import { clearFilter,removeFilter,selectFilters } from "./filter-slice"
 import {
     FilterListConteiner,
     FilterListEl,
