@@ -1,8 +1,7 @@
 import { Card } from './Card'
 import {useSelector,useDispatch} from 'react-redux'
-import {selectVisiblePositions} from '../../../store/positions/positions-selector'
-import {selectFilters} from '../../../store/filters/filters-selector'
-import { addFilter } from '../../../store/filters/filters-action'
+import {selectVisiblePositions} from './position-slice'
+import { addFilter,selectFilters } from '../filter/filter-slice'
 
 export function JobsList(){
     const currentFilters = useSelector(selectFilters)

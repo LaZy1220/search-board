@@ -11,7 +11,7 @@ import {
     TextConteiner,
     TagsConteiner,
     Tag
-} from "./styled/CardStyles"
+} from "../../styled/CardStyles"
 
 export function Card({
     id,
