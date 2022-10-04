@@ -33,7 +33,7 @@ export function FilterList(){
                         </Filter>)
                 }
                 </FilterListUl>
-            <Clear className="text-blue-400 cursor-pointer mr-10 underline decoration-2 ml-3"
+            <Clear
                 onClick={()=>dispatch(clearFilter())}>
                     Clear
              </Clear>

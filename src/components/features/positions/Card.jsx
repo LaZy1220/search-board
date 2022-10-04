@@ -14,14 +14,11 @@ import {
 } from "../../styled/CardStyles"
 
 export function Card({
-    id,
     company,
     logo,
     new: isNew,
     featured,
     position,
-    role,
-    level,
     postedAt,
     contract,
     location,
@@ -30,7 +27,26 @@ export function Card({
     handleAddFilter
 })
 {
+    const {level, role} = position
     const tags = [].concat(...languages,...tools,role,level)
+    const diffDays = (datePosted)=>{
+        const date1 = new Date()
+        const date2 = new Date(datePosted)
+        const timeDiff =  Math.abs(date1.getTime()-date2.getTime())
+        const res = Math.ceil(timeDiff/(1000*3600*24))-1;       
+        return (res===0)?'Today':
+        (res>7&&res<14)?'1w':
+        (res>14&&res<21)?'2w':
+        (res>21&&res<27)?'3w':
+        (res>27&&res<60)?'1m':
+        (res>60&&res<90)?'2m':
+        (res>90&&res<120)?'3m':
+        (res>120&&res<150)?'4m':
+        (res>150&&res<180)?'5m':
+        (res>180&&res<360)?'more than 6m':
+        (res>360)?'more than 1y':`${res}d`
+    }
+    console.log(postedAt);
     return(
         <CardEl>
             <Wrapper>
@@ -42,9 +58,9 @@ export function Card({
                                 {isNew?<DopInfo isNew>NEW!</DopInfo>:''}
                                 {featured?<DopInfo>FEATURED</DopInfo>:''}
                         </TitleConteiner>
-                        <Position>{position}</Position>
+                        <Position>{level} {role}</Position>
                         <TextConteiner>
-                             <span>{postedAt}</span>
+                             <span>{diffDays(postedAt)} ago</span>
                              <span>{contract}</span>
                              <span>{location}</span>
                         </TextConteiner>
@@ -54,7 +70,6 @@ export function Card({
                 {
                     tags.map((item)=>
                     <Tag 
-                    className=" text-lightdarkgray cursor-pointer hover:text-lightgray hover:bg-lightdarkgray" 
                     key={item}
                     onClick={()=>handleAddFilter(item)}>
                     {item}

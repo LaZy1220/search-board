@@ -17,8 +17,7 @@ export const selectVisiblePositions = (state,filters=[])=>{
         return state.positions
     }
     return state.positions.filter(pos=>{
-        const positionsFilters= [].concat(...pos.languages,...pos.tools,pos.role,pos.level)
-
+        const positionsFilters= [].concat(...pos.languages,...pos.tools,pos.position.role,pos.position.level)
         return filters.every(filter => positionsFilters.includes(filter))
     })
 }

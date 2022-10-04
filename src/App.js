@@ -10,10 +10,13 @@ function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(addPosition(data))
-    })
+    // fetch('https://search-board.herokuapp.com/api/v1/work/')
+    // .then(response=>response.json())
+    // .then(data=>dispatch(addPosition(data.results)))
+    },[dispatch])
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <FilterList/>
       <JobsList/>
     </div>
