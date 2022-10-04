@@ -19,7 +19,7 @@ export function Card({
     new: isNew,
     featured,
     position,
-    postedAt,
+    postAt,
     contract,
     location,
     languages,
@@ -46,7 +46,6 @@ export function Card({
         (res>180&&res<360)?'more than 6m':
         (res>360)?'more than 1y':`${res}d`
     }
-    console.log(postedAt);
     return(
         <CardEl>
             <Wrapper>
@@ -60,7 +59,7 @@ export function Card({
                         </TitleConteiner>
                         <Position>{level} {role}</Position>
                         <TextConteiner>
-                             <span>{diffDays(postedAt)} ago</span>
+                             <span>{diffDays(postAt)} ago</span>
                              <span>{contract}</span>
                              <span>{location}</span>
                         </TextConteiner>

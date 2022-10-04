@@ -1,5 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
+export const queryPositions = createAsyncThunk(
+    '@@position/queryPositions',
+    async (_,{dispatch})=>{
+        const response = await axios.get('https://search-board.herokuapp.com/api/v1/work/')
+        dispatch(addPosition(response.data.results))
+    }
+)
 const positionSlice = createSlice({
     name:'@@position',
     initialState:[],
