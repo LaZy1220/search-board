@@ -4,7 +4,7 @@ import axios from "axios";
 export const queryPositions = createAsyncThunk(
     '@@position/queryPositions',
     async (_,{dispatch})=>{
-        const response = await axios.get('https://search-board.herokuapp.com/api/v1/work/')
+        const response = await axios.get('https://search-board.herokuapp.com/api/v1/work/all')
         dispatch(addPosition(response.data.results))
     }
 )

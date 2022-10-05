@@ -13,15 +13,17 @@ export const Wrapper = styled.div`
     border-radius: 12px;
     padding: 8px;
     justify-content: space-between;
-    min-width: 800px;
+    width: 800px;
     @media (max-width:1024px){
         display: block;
-        min-width: 360px;
+        min-width: 300px;
+        max-width: 300px;
     }
 `
 export const VacancyInfo = styled.div`
     display: flex;
     position: relative;
+    padding-right: 20px;
     gap: 10px;
     margin:8px 0;
     @media (max-width:1024px){
@@ -65,6 +67,7 @@ export const TextConteiner = styled.div`
     color: var(--darkgray);
     display: flex;
     flex-wrap: wrap;
+    width: 220px;
     gap: 1.25rem;
 `
 export const TagsConteiner = styled.div`

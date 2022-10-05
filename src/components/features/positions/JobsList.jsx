@@ -1,12 +1,13 @@
 import { Card } from './Card'
-import {useSelector,useDispatch} from 'react-redux'
-import {selectVisiblePositions} from './position-slice'
-import { addFilter,selectFilters } from '../filter/filter-slice'
+import {useDispatch} from 'react-redux'
+import { addFilter} from '../filter/filter-slice'
+import { usePositions } from './use-positions'
+import { useFetchPositions } from './use-fetch-positions'
 
 export function JobsList(){
-    const currentFilters = useSelector(selectFilters)
-    const positions =useSelector(state=>selectVisiblePositions(state,currentFilters))
-    const dispatch =useDispatch()
+    useFetchPositions()
+    const dispatch = useDispatch()
+    const positions = usePositions()
     const handleAddFilter = (filter)=>{
         dispatch(addFilter(filter))
     }
