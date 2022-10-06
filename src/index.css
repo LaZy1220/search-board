@@ -24,7 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(180, 52%, 96%);
+  background-color: hsl(180deg 51% 82%);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

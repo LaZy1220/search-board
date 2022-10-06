@@ -1,7 +1,4 @@
 import {Routes, Route} from 'react-router-dom'
-import {FilterList} from './components/features/filter/FiltersList'
-import { JobsList } from './components/features/positions/JobsList';
-import { Header } from './components/Header';
 import {HomePage} from './pages/HomePage'
 import {LoginPage} from './pages/LoginPage'
 import {RegisterPage} from './pages/RegisterPage'
@@ -14,17 +11,14 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='/vacancies' element={<VacanciesPage/>}/>
-        <Route path='/vacancy/:id' element={<InfoVacancyPage/>}/>
-        <Route path='/createvacancy' element={<CreateVacancyPage/>}/>
-        <Route path='/createcv' element={<CreateCVPage/>}/>
+        <Route path='/search-board/' element={<HomePage/>}/>
+        <Route path='/search-board/login' element={<LoginPage/>}/>
+        <Route path='/search-board/register' element={<RegisterPage/>}/>
+        <Route path='/search-board/vacancies' element={<VacanciesPage/>}/>
+        <Route path='/search-board/vacancy/:id' element={<InfoVacancyPage/>}/>
+        <Route path='/search-board/createvacancy' element={<CreateVacancyPage/>}/>
+        <Route path='/search-board/createcv' element={<CreateCVPage/>}/>
       </Routes>
-      <Header />
-      <FilterList/>
-      <JobsList/>
     </div>
   );
 }

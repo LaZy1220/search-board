@@ -34,10 +34,13 @@ export const VacancyInfo = styled.div`
 export const Logo = styled.img`
     flex-shrink: 0;
     width: 100px;
+    height: 100px;
+    border-radius: 50%;
      @media (max-width:1024px){
          position: absolute;
          top:-50px;
-         width: 50px;
+         width: 60px;
+         height:60px;
      }
 `
 export const FlexColEl = styled.div`
