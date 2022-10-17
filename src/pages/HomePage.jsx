@@ -1,5 +1,6 @@
 import HomePageImg from "../images/HomepageImg.svg";
 import LogoRef from "../images/Logo.png";
+import { useNavigate } from "react-router-dom";
 import {
   HomePageEl,
   Logo,
@@ -17,6 +18,7 @@ import {
 } from "../components/styled/HomePage";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <HomePageEl>
       <Logo>
@@ -55,8 +57,10 @@ export const HomePage = () => {
           </DescriptionText>
         </Descriptions>
         <FlexEl>
-          <Button>Регистрация</Button>
-          <Button>Вход</Button>
+          <Button onClick={() => navigate(`/search-board/register`)}>
+            Регистрация
+          </Button>
+          <Button onClick={() => navigate(`/search-board/login`)}>Вход</Button>
         </FlexEl>
       </Wrapper>
       <HomePageImage src={HomePageImg} />
