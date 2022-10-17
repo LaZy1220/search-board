@@ -4,6 +4,10 @@
   font-family: var(--family-league);
   margin: 0;
 }
+
+input {
+  outline: none;
+}
 h1,
 h2,
 h3,
