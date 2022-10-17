@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkalami&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=League+Spartan:wght@200;300;500&family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap");
 * {
-  font-family: "League Spartan", sans-serif;
+  font-family: var(--family-league);
   margin: 0;
 }
 h1,
@@ -13,6 +14,8 @@ h6 {
   font-weight: inherit;
 }
 :root {
+  --family-league: "League Spartan", sans-serif;
+  --family-alkalami: "Alkalami", serif;
   --lightdarkgray: hsl(180, 29%, 50%);
   --lightgray: hsl(180, 52%, 96%);
   --darkgray: hsl(180, 8%, 52%);
@@ -24,7 +27,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: hsl(180deg 51% 82%);
+  background-color: hsl(180deg 46% 65%);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

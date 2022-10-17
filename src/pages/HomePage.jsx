@@ -1,27 +1,65 @@
-import styled from "styled-components"
-import HomePageImg from '../images/HomepageImg.svg'
+import HomePageImg from "../images/HomepageImg.svg";
+import LogoRef from "../images/Logo.png";
+import {
+  HomePageEl,
+  Logo,
+  LogoImg,
+  LogoText,
+  Title,
+  HomePageImage,
+  Descriptions,
+  DescriptionText,
+  Circle,
+  Color,
+  Wrapper,
+  Button,
+  FlexEl,
+} from "../components/styled/HomePage";
 
-const HomePageEl = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-`
-const FlexEl = styled.div`
-display: flex;
-gap: 40%;
-`
-const HomePageImage = styled.img`
-    width: 70%;
-`
-
-export const HomePage = ()=>{
-    return(
-        <HomePageEl>
-            <FlexEl>
-                <span>HSDASDASDAS</span>
-                <HomePageImage src={HomePageImg}/>
-            </FlexEl>
-        </HomePageEl>
-    )
-}
+export const HomePage = () => {
+  return (
+    <HomePageEl>
+      <Logo>
+        <LogoImg src={LogoRef} />
+        <LogoText>Lazy play</LogoText>
+      </Logo>
+      <Wrapper>
+        <Title>
+          LAZY PLAY - бесплатный сервис, где собраны актуальные вакансии для
+          самых ленивых
+        </Title>
+        <Descriptions>
+          <DescriptionText>
+            <Circle color={"#fc8d1d"} />В нашу базу{" "}
+            <Color color={"#fc8d1d"}>ежедневно</Color> поступают наиболее
+            актуальные предложения.
+          </DescriptionText>
+          <DescriptionText>
+            <Circle color={"#0028ff"} />
+            Здесь найдется работа для{" "}
+            <Color color={"#0028ff"}>опытных мастеров</Color> своего дела и{" "}
+            <Color color={"#0028ff"}>начинающих </Color>
+            специалистов без опыта.
+          </DescriptionText>
+          <DescriptionText>
+            <Circle color={"#c05704"} />
+            Здесь вы найдете <Color color={"#c05704"}>кандидатов</Color> на
+            вакантную должность с необходимым стажем и набором навыков.
+          </DescriptionText>
+          <DescriptionText>
+            <Circle color={"#ff0000"} />
+            Соискатели смогут подбирать{" "}
+            <Color color={"#ff0000"}> интересные</Color> для себя вакансии. Наш
+            сайт
+            <Color color={"#ff0000"}>сэкономит</Color> ваше время!
+          </DescriptionText>
+        </Descriptions>
+        <FlexEl>
+          <Button>Регистрация</Button>
+          <Button>Вход</Button>
+        </FlexEl>
+      </Wrapper>
+      <HomePageImage src={HomePageImg} />
+    </HomePageEl>
+  );
+};
