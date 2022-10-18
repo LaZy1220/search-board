@@ -56,6 +56,7 @@ export const Form = () => {
           value={repPassword}
           placeholder="repeat password"
           onChange={(e) => setRepPassword(e.target.value)}
+          style={{ marginBottom: "20px" }}
         />
       </InputEl>
     </form>
