@@ -45,44 +45,40 @@ export const RegisterPage = () => {
           <UserIcon src={user} />
           <label>Ваш логин</label>
           <Input
-            name="login"
             type="text"
             value={login}
             placeholder="name"
-            onChange={(e) => setLogin(e.target.value)}
+            setValue={setLogin}
           />
         </InputEl>
         <InputEl>
           <UserIcon src={mail} />
           <label>Ваша почта</label>
           <Input
-            name="login"
             type="email"
             value={email}
             placeholder="yourmail@mail.ru"
-            onChange={(e) => setEmail(e.target.value)}
+            setValue={setEmail}
           />
         </InputEl>
         <InputEl>
           <UserIcon src={key} />
           <label>Ваш пароль</label>
           <Input
-            name="login"
             type="password"
             value={password}
             placeholder="your password"
-            onChange={(e) => setPassword(e.target.value)}
+            setValue={setPassword}
           />
         </InputEl>
         <InputEl>
           <UserIcon src={key} />
           <label>Повторите пароль</label>
           <Input
-            name="login"
             type="password"
             value={repPassword}
             placeholder="repeat password"
-            onChange={(e) => setRepPassword(e.target.value)}
+            setValue={setRepPassword}
             style={{ marginBottom: "20px" }}
           />
         </InputEl>

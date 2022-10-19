@@ -20,5 +20,12 @@ export const InputEl = styled.input`
 `;
 
 export const Input = (props) => {
-  return <InputEl type={props.type} placeholder={props.placeholder} />;
+  return (
+    <InputEl
+      type={props.type}
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={(e) => props.setValue(e.target.value)}
+    />
+  );
 };
