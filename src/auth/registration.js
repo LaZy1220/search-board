@@ -13,7 +13,7 @@ export const registration = async (isWho, login, email, password) => {
           name: login,
           password: password,
         });
-    console.log(response.data);
+    response.data.error && alert(response.data.error);
   } catch (e) {
     alert(e);
   }
