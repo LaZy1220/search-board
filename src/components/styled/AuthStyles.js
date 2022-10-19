@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const RegisterEl = styled.div`
+export const AuthEl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 `;
-export const RegisterBox = styled.div`
+export const AuthBox = styled.div`
   position: relative;
   padding: 35px;
   background-color: white;
@@ -67,4 +67,18 @@ export const Button = styled.button`
     background-color: rgba(147, 184, 189, 1);
     color: rgb(255, 255, 255);
   }
+`;
+export const InputEl = styled.div`
+  color: rgb(6, 106, 117);
+  font-style: italic;
+  margin-bottom: 15px;
+`;
+
+export const UserIcon = styled.img`
+  position: relative;
+  top: 40px;
+  left: 10px;
+  text-align: center;
+  height: 20px;
+  width: 20px;
 `;

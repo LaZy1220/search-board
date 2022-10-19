@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-export const InputEl = styled.div`
-  color: rgb(6, 106, 117);
-  font-style: italic;
-  margin-bottom: 15px;
-`;
-export const Input = styled.input`
+export const InputEl = styled.input`
   width: 92%;
   height: 20px;
   margin-top: 6px;
@@ -23,11 +18,7 @@ export const Input = styled.input`
     box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
   }
 `;
-export const UserIcon = styled.img`
-  position: relative;
-  top: 40px;
-  left: 10px;
-  text-align: center;
-  height: 20px;
-  width: 20px;
-`;
+
+export const Input = (props) => {
+  return <InputEl type={props.type} placeholder={props.placeholder} />;
+};

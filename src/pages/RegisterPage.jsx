@@ -1,13 +1,15 @@
 import { useState } from "react";
 import {
-  RegisterEl,
-  RegisterBox,
+  AuthEl,
+  AuthBox,
   Button,
   Title,
   FlexEl,
   Current,
-} from "../components/styled/RegisterPage";
-import { InputEl, Input, UserIcon } from "../components/styled/Form";
+  InputEl,
+  UserIcon,
+} from "../components/styled/AuthStyles";
+import { Input } from "../components/Input";
 import { Back } from "../components/Back";
 import { registration } from "../auth/registration";
 import user from "../images/form/user.png";
@@ -21,8 +23,8 @@ export const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
   return (
-    <RegisterEl>
-      <RegisterBox>
+    <AuthEl>
+      <AuthBox>
         <Back />
         <Title>Регистрация</Title>
         <FlexEl>
@@ -89,7 +91,7 @@ export const RegisterPage = () => {
         >
           Зарегистрироваться
         </Button>
-      </RegisterBox>
-    </RegisterEl>
+      </AuthBox>
+    </AuthEl>
   );
 };
