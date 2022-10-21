@@ -14,13 +14,11 @@ import { Back } from "../components/Back";
 import { login } from "../auth/registration";
 import mail from "../images/form/email.png";
 import key from "../images/form/key.png";
-import { useDispatch } from "react-redux";
 
 export const LoginPage = () => {
   const [isCurrentUser, setIsCurrentUser] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
   return (
     <AuthEl>
       <AuthBox>
