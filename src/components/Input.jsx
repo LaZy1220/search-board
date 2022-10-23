@@ -26,6 +26,7 @@ export const Input = (props) => {
       placeholder={props.placeholder}
       value={props.value}
       onChange={(e) => props.setValue(e.target.value)}
+      onBlur={(e) => props.blurHandler(e)}
     />
   );
 };
