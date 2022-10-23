@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ErrorEl = styled.div`
+const ErrorEl = styled.label`
   color: red;
 `;
 

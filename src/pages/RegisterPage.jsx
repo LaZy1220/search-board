@@ -27,7 +27,7 @@ export const RegisterPage = () => {
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [loginError, setLoginError] = useState("Логин не может быть пустым");
-  const [emailError, setMailError] = useState("Почта не может быть пустой");
+  const [emailError, setEmailError] = useState("Почта не может быть пустой");
   const [passwordError, setPasswordError] = useState(
     "Пароль не может быть пустым"
   );
@@ -45,7 +45,31 @@ export const RegisterPage = () => {
         break;
     }
   };
-
+  const loginHandler = (e) => {
+    setLogin(e.target.value);
+    console.log(e.target.value.trim().length === 0);
+    if (e.target.value.trim().length === 0) {
+      setLoginError("Логин не может быть пустым");
+    } else {
+      setLoginError("");
+    }
+  };
+  const passwordHandler = (e) => {
+    setPassword(e.target.value);
+  };
+  const repPasswordHandler = (e) => {
+    setRepPassword(e.target.value);
+  };
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setEmailError("Некорректная почта");
+    } else {
+      setEmailError("");
+    }
+  };
   return (
     <AuthEl>
       <AuthBox>
@@ -67,44 +91,51 @@ export const RegisterPage = () => {
         </FlexEl>
         <InputEl>
           <UserIcon src={user} />
-          <label>Ваш логин</label>
-          {loginDirty && loginError && <div>{loginError}</div>}
+          {loginDirty && loginError ? (
+            <InputError>{loginError}</InputError>
+          ) : (
+            <label>Ваш логин</label>
+          )}
           <Input
             name="login"
             type="text"
             value={login}
             placeholder="name"
-            setValue={setLogin}
+            setValue={loginHandler}
             blurHandler={blurHandler}
           />
         </InputEl>
         <InputEl>
-          {emailDirty && emailError && <InputError>{emailError}</InputError>}
           <UserIcon src={mail} />
-          <label>Ваша почта</label>
+          {emailDirty && emailError ? (
+            <InputError>{emailError}</InputError>
+          ) : (
+            <label>Ваша почта</label>
+          )}
           <div>
             <Input
               name="email"
               type="email"
               value={email}
               placeholder="yourmail@mail.ru"
-              setValue={setEmail}
+              setValue={emailHandler}
               blurHandler={blurHandler}
             />
           </div>
         </InputEl>
         <InputEl>
           <UserIcon src={key} />
-          <label>Ваш пароль</label>
-          {passwordDirty && passwordError && (
+          {passwordDirty && passwordError ? (
             <InputError>{passwordError}</InputError>
+          ) : (
+            <label>Ваш пароль</label>
           )}
           <Input
             name="password"
             type="password"
             value={password}
             placeholder="your password"
-            setValue={setPassword}
+            setValue={passwordHandler}
             blurHandler={blurHandler}
           />
         </InputEl>
@@ -116,7 +147,7 @@ export const RegisterPage = () => {
             type="password"
             value={repPassword}
             placeholder="repeat password"
-            setValue={setRepPassword}
+            setValue={repPasswordHandler}
             style={{ marginBottom: "20px" }}
           />
         </InputEl>
