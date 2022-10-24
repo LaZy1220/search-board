@@ -57,3 +57,6 @@ code {
     color-stop(100%, rgba(147, 184, 189, 0))
   );
 }
+.disabled {
+  cursor: not-allowed !important;
+}

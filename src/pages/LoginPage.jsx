@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   AuthEl,
   AuthBox,
-  Button,
   Title,
   FlexEl,
   Current,
@@ -11,9 +10,9 @@ import {
 } from "../components/styled/AuthStyles";
 import { Input } from "../components/Input";
 import { Back } from "../components/Back";
-import { login } from "../auth/registration";
 import mail from "../images/form/email.png";
 import key from "../images/form/key.png";
+import { AuthButton } from "../components/AuthButton";
 
 export const LoginPage = () => {
   const [isCurrentUser, setIsCurrentUser] = useState(true);
@@ -58,9 +57,14 @@ export const LoginPage = () => {
             setValue={setPassword}
           />
         </InputEl>
-        <Button onClick={() => login(isCurrentUser, email, password)}>
+        <AuthButton
+          formValid={true}
+          email={email}
+          password={password}
+          isCurrentUser={isCurrentUser}
+        >
           Войти
-        </Button>
+        </AuthButton>
       </AuthBox>
     </AuthEl>
   );

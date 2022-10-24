@@ -2,20 +2,20 @@ import { useState } from "react";
 import {
   AuthEl,
   AuthBox,
-  Button,
   Title,
   FlexEl,
   Current,
   InputEl,
   UserIcon,
 } from "../components/styled/AuthStyles";
+import { AuthButton } from "../components/AuthButton";
 import { Input } from "../components/Input";
 import { Back } from "../components/Back";
-import { registration } from "../auth/registration";
 import user from "../images/form/user.png";
 import mail from "../images/form/email.png";
 import key from "../images/form/key.png";
 import { InputError } from "../components/InputError";
+import { useEffect } from "react";
 
 export const RegisterPage = () => {
   const [isCurrentUser, setIsCurrentUser] = useState(true);
@@ -35,6 +35,14 @@ export const RegisterPage = () => {
   const [repPasswordError, setRepPasswordError] = useState(
     "Пароль не может быть пустым"
   );
+  const [formValid, setFormValid] = useState(false);
+  useEffect(() => {
+    if (emailError || passwordError || loginError || repPasswordError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [emailError, passwordError, loginError, repPasswordError]);
 
   const blurHandler = (e) => {
     switch (e.target.name) {
@@ -50,6 +58,8 @@ export const RegisterPage = () => {
       case "repPassword":
         setRepPasswordDirty(true);
         break;
+      default:
+        return;
     }
   };
   const loginHandler = (e) => {
@@ -185,11 +195,16 @@ export const RegisterPage = () => {
             style={{ marginBottom: "20px" }}
           />
         </InputEl>
-        <Button
-          onClick={() => registration(isCurrentUser, login, email, password)}
+        <AuthButton
+          isRegistration={true}
+          formValid={formValid}
+          isCurrentUser={isCurrentUser}
+          login={login}
+          email={email}
+          password={password}
         >
           Зарегистрироваться
-        </Button>
+        </AuthButton>
       </AuthBox>
     </AuthEl>
   );
