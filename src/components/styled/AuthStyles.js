@@ -53,21 +53,6 @@ export const Current = styled.div`
   margin-bottom: 20px;
   font-weight: 600;
 `;
-export const Button = styled.button`
-  margin: 0 auto;
-  display: block;
-  padding: 10px;
-  border: none;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 3px rgb(6, 106, 117);
-  color: rgb(6, 106, 117);
-  &:hover {
-    background-color: rgba(147, 184, 189, 1);
-    color: rgb(255, 255, 255);
-  }
-`;
 export const InputEl = styled.div`
   color: rgb(6, 106, 117);
   font-style: italic;
