@@ -26,9 +26,13 @@ export const RegisterPage = () => {
   const [loginDirty, setLoginDirty] = useState(false);
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
+  const [repPasswordDirty, setRepPasswordDirty] = useState(false);
   const [loginError, setLoginError] = useState("Логин не может быть пустым");
   const [emailError, setEmailError] = useState("Почта не может быть пустой");
   const [passwordError, setPasswordError] = useState(
+    "Пароль не может быть пустым"
+  );
+  const [repPasswordError, setRepPasswordError] = useState(
     "Пароль не может быть пустым"
   );
 
@@ -43,11 +47,13 @@ export const RegisterPage = () => {
       case "password":
         setPasswordDirty(true);
         break;
+      case "repPassword":
+        setRepPasswordDirty(true);
+        break;
     }
   };
   const loginHandler = (e) => {
     setLogin(e.target.value);
-    console.log(e.target.value.trim().length === 0);
     if (e.target.value.trim().length === 0) {
       setLoginError("Логин не может быть пустым");
     } else {
@@ -56,9 +62,32 @@ export const RegisterPage = () => {
   };
   const passwordHandler = (e) => {
     setPassword(e.target.value);
+    const uppCase = /[A-Z]/;
+    const specSymb = /[!@#$%^&*()\-=_+~[\]{}'"\\|,./<>?]/;
+    if (e.target.value.trim().length < 8 && e.target.value.trim().length >= 1) {
+      setPasswordError("Пароль слишком маленький");
+    } else if (e.target.value.trim().length === 0) {
+      setPasswordError("Пароль не может быть пустым");
+    } else if (!uppCase.test(e.target.value)) {
+      setPasswordError("Пароль должен содержать символ в верхнем регистре");
+    } else if (!!specSymb.test(e.target.value)) {
+      setPasswordError("Пароль не должен содержать спец. символы");
+    } else {
+      setPasswordError("");
+    }
+    if (repPassword !== e.target.value) {
+      setRepPasswordError("Пароли не совпадают");
+    } else {
+      setRepPasswordError("");
+    }
   };
   const repPasswordHandler = (e) => {
     setRepPassword(e.target.value);
+    if (password !== e.target.value) {
+      setRepPasswordError("Пароли не совпадают");
+    } else {
+      setRepPasswordError("");
+    }
   };
   const emailHandler = (e) => {
     setEmail(e.target.value);
@@ -141,13 +170,18 @@ export const RegisterPage = () => {
         </InputEl>
         <InputEl>
           <UserIcon src={key} />
-          <label>Повторите пароль</label>
+          {repPasswordDirty && repPasswordError ? (
+            <InputError>{repPasswordError}</InputError>
+          ) : (
+            <label>Повторите пароль</label>
+          )}
           <Input
             name="repPassword"
             type="password"
             value={repPassword}
             placeholder="repeat password"
             setValue={repPasswordHandler}
+            blurHandler={blurHandler}
             style={{ marginBottom: "20px" }}
           />
         </InputEl>
