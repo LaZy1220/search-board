@@ -18,6 +18,12 @@ export const LoginPage = () => {
   const [isCurrentUser, setIsCurrentUser] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const passwordHandler = (e) => {
+    setPassword(e.target.value);
+  };
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <AuthEl>
       <AuthBox>
@@ -44,7 +50,7 @@ export const LoginPage = () => {
             type="email"
             value={email}
             placeholder="yourmail@mail.ru"
-            setValue={setEmail}
+            setValue={emailHandler}
           />
         </InputEl>
         <InputEl>
@@ -54,7 +60,7 @@ export const LoginPage = () => {
             type="password"
             value={password}
             placeholder="your password"
-            setValue={setPassword}
+            setValue={passwordHandler}
           />
         </InputEl>
         <AuthButton

@@ -28,11 +28,13 @@ export const AuthButton = ({
 }) => {
   const navigate = useNavigate();
   const registrationFunc = async (isWho, login, email, password) => {
+    debugger;
     try {
+      console.log("reg");
       const response = isWho
         ? await axios.post("https://makser-test.site/api/registration_user/", {
             email: email,
-            name: login,
+            login_name: login,
             password: password,
           })
         : await axios.post(
@@ -55,16 +57,21 @@ export const AuthButton = ({
   };
   const loginFunc = async (isWho, email, password) => {
     try {
-      const response = await axios.post(
-        isWho
-          ? "https://makser-test.site/api/login/"
-          : "https://makser-test.site/api/login_company/",
-        {
-          email: email,
-          password: password,
-        },
-        { withCredentials: true }
-      );
+      console.log("log");
+      debugger;
+      const response = isWho
+        ? await axios.post("https://makser-test.site/api/login/", {
+            email: email,
+            password: password,
+          })
+        : await axios.post(
+            "https://makser-test.site/api/login_company/",
+            {
+              email: email,
+              password: password,
+            },
+            { withCredentials: true }
+          );
       if (response.data.non_field_errors) {
         alert("Проверьте введенные данные");
       } else {

@@ -1,22 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const initialState = {
+  positions: [],
+};
 export const queryPositions = createAsyncThunk(
   "@@position/queryPositions",
-  async (_, { dispatch }) => {
+  async (_, { rejectWithValue, dispatch }) => {
     const response = await axios.get("https://makser-test.site/api/v1/work/");
-    dispatch(addPosition(response.data.results));
+    dispatch(addPositions(response.data.results));
   }
 );
 const positionSlice = createSlice({
-  name: "@@position",
-  initialState: [],
+  name: "@@positions",
+  initialState,
   reducers: {
-    addPosition: (_, action) => action.payload,
+    addPositions: (state, action) => {
+      state.positions = action.payload;
+    },
+  },
+  extraReducers: {
+    [queryPositions.fulfilled]: () => console.log("fulfilled"),
+    [queryPositions.pending]: () => console.log("pending"),
+    [queryPositions.rejected]: () => console.log("rejected"),
   },
 });
 
-export const { addPosition } = positionSlice.actions;
+export const { addPositions } = positionSlice.actions;
 export const positionReducer = positionSlice.reducer;
 
 export const selectAllPositions = (state) => state.positions;

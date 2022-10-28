@@ -21,13 +21,25 @@ export const InputEl = styled.input`
 
 export const Input = (props) => {
   return (
-    <InputEl
-      type={props.type}
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={(e) => props.setValue(e)}
-      onBlur={(e) => props.blurHandler(e)}
-      name={props.name}
-    />
+    <>
+      {props.blurHandler ? (
+        <InputEl
+          type={props.type}
+          placeholder={props.placeholder}
+          value={props.value}
+          onChange={(e) => props.setValue(e)}
+          onBlur={(e) => props.blurHandler(e)}
+          name={props.name}
+        />
+      ) : (
+        <InputEl
+          type={props.type}
+          placeholder={props.placeholder}
+          value={props.value}
+          onChange={(e) => props.setValue(e)}
+          name={props.name}
+        />
+      )}
+    </>
   );
 };
