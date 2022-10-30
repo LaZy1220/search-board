@@ -7,7 +7,7 @@ export const VacanciesPage = () => {
     <>
       <Header />
       <JobsList />
-      <FilterList />
+      {/* <FilterList /> */}
     </>
   );
 };
