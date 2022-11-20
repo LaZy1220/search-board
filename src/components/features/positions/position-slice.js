@@ -3,24 +3,36 @@ import axios from "axios";
 
 export const loadPositions = createAsyncThunk(
   "@@positions/load-positions",
-  async (_, { dispatch }) => {
-    const res = await axios.get("https://makser-test.site/api/v1/work/");
-    dispatch(setPositions(res.data));
+  async () => {
+    return axios.get("https://makser-test.site/api/v1/work/");
   }
 );
-
+const initialState = {
+  status: "idle",
+  list: [],
+  error: null,
+};
 const positionSlice = createSlice({
   name: "@@positions",
-  initialState: [],
-  reducers: {
-    setPositions: (state, action) => {
-      state.positions = action.payload;
-    },
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadPositions.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(loadPositions.rejected, (state, action) => {
+        state.status = "rejected";
+        state.error = action.payload || action.meta.error;
+      })
+      .addCase(loadPositions.fulfilled, (state, action) => {
+        state.status = "received";
+        state.list = action.payload.data.results;
+      });
   },
 });
 export const positionReducer = positionSlice.reducer;
-export const { setPositions } = positionSlice.actions;
-
 export const selectAllPositions = (state) => state.positions;
 // export const selectVisiblePositions = (state, filters = []) => {
 //   if (filters.length === 0) {

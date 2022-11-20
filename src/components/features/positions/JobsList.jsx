@@ -1,22 +1,18 @@
 import { Card } from "./Card";
-import axios from "axios";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFilter } from "../filter/filter-slice";
+// import { addFilter } from "../filter/filter-slice";
 import { useEffect } from "react";
 import { loadPositions } from "./position-slice";
-import { selectAllPositions } from "./position-slice";
-import { selectFilters } from "../filter/filter-slice";
+// import { selectFilters } from "../filter/filter-slice";
 
 export function JobsList() {
-  const [positions, setPositions] = useState([]);
-  const loadingPos = async () => {
-    const res = await axios.get("https://makser-test.site/api/v1/work/");
-    setPositions(res.data.results);
-  };
+  const dispatch = useDispatch();
   useEffect(() => {
-    loadingPos();
-  }, []);
+    dispatch(loadPositions());
+  }, [dispatch]);
+  const { status, error, list } = useSelector((state) => ({
+    ...state.positions,
+  }));
   // const dispatch = useDispatch();
   // const handleAddFilter = (filter) => {
   //   dispatch(addFilter(filter));
@@ -30,9 +26,12 @@ export function JobsList() {
   // }, [dispatch]);
   return (
     <>
-      {positions.map((item) => (
-        <Card key={item.id} {...item} />
-      ))}
+      {/* {error && <h2>Can't fetch data</h2>}
+      {status === "loading" && <h2>Loading...</h2>}
+      <>
+        {status === "received" &&
+          list.map((item) => <Card key={item.id} {...item} />)}
+      </> */}
     </>
   );
 }
